@@ -150,13 +150,29 @@ body {
 
 .footer {
 	flex: 0 0 auto;
+	.footer-logo {
+		@include mediaMobile {
+			margin-bottom: 20px;
+		}
 
+		@include mediaTablet {
+			margin-bottom: 0;
+		}
+	}
 	.footer-mid {
 		margin-bottom: 41px;
 		.container {
 			display: flex;
 			justify-content: space-between;
 			align-items: start;
+
+			@include mediaMobile {
+				flex-direction: column;
+			}
+
+			@include mediaTablet {
+				flex-direction: row;
+			}
 		}
 		.social {
 			display: flex;
@@ -189,6 +205,14 @@ body {
 			display: flex;
 			gap: 20px;
 			align-items: center;
+
+			@include mediaMobile {
+				margin-bottom: 24px;
+			}
+
+			@include mediaTablet {
+				margin-bottom: 0;
+			}
 		}
 		.tech-support {
 			text-align: center;
@@ -199,6 +223,14 @@ body {
 				color: $--gray;
 				display: flex;
 				flex-direction: column;
+			}
+
+			@include mediaMobile {
+				margin-top: 0;
+			}
+
+			@include mediaTablet {
+				margin-top: -32px;
 			}
 		}
 	}
@@ -271,18 +303,6 @@ body {
 	.photo-in-helicopter {
 		margin-bottom: 30px;
 
-		.container {
-			display: flex;
-
-			@include mediaMobile {
-				flex-direction: column;
-			}
-
-			@include mediaTablet {
-				flex-direction: row;
-			}
-		}
-
 		.starcup {
 			border-bottom: 0.5px solid #c7c7c7;
 
@@ -299,6 +319,7 @@ body {
 	.photo-helicopter-info {
 		margin-right: 19px;
 		max-width: 550px;
+		display: grid;
 
 		.photo-helicopter__title {
 			margin-bottom: 18px;
@@ -363,6 +384,7 @@ body {
 	}
 	.photo-helicopter-img {
 		margin-bottom: 30px;
+		grid-row: 2 / 5;
 	}
 
 	.photo-packet {
@@ -392,11 +414,17 @@ body {
 				@include mediaMobile {
 					font-size: 28px;
 					font-weight: 400;
+					display: flex;
+					flex-direction: column;
 				}
 
 				@include mediaTablet {
+					span:first-of-type {
+						margin-right: 15px;
+					}
 					text-align: left;
 					font-weight: 500;
+					flex-direction: row;
 				}
 			}
 		}
@@ -435,10 +463,25 @@ body {
 			padding-bottom: 51px;
 			border-bottom: 0.5px solid #c7c7c7;
 			display: grid;
+
+			@include mediaMobile {
+				grid-template-columns: none;
+			}
+
+			@include mediaTablet {
+				grid-template-columns: 1fr 1fr;
+			}
 		}
 
 		.about-organizer-info {
 			max-width: 584px;
+
+			@include mediaMobile {
+			}
+
+			@include mediaTablet {
+				grid-row: 1 / 2;
+			}
 		}
 		.organizer-info__subtitle {
 			font-weight: 500;
@@ -489,13 +532,25 @@ body {
 		.photograph-img-avatar {
 			margin-top: 13px;
 		}
+
 		.about-organizer-photograph {
-			grid-row: 2 / 1;
 			text-align: center;
 			align-items: center;
 			display: flex;
 			flex-direction: column;
+			margin-bottom: 25px;
+
+			@include mediaMobile {
+				grid-row: 2 / 1;
+				justify-self: flex-start;
+			}
+
+			@include mediaTablet {
+				grid-row: 1 / 2;
+				justify-self: flex-end;
+			}
 		}
+
 		.photograph-fullName {
 			font-weight: 500;
 			margin-top: 23px;
@@ -510,12 +565,34 @@ body {
 
 	.shooting-soon {
 		margin-bottom: 82px;
-		.shooting__title {
-			font-weight: 500;
-			font-size: 20px;
-			margin-bottom: 30px;
-			max-width: 225px;
+
+		@include mediaMobile {
+			margin-bottom: 45px;
 		}
+
+		@include mediaTablet {
+			margin-bottom: 82px;
+		}
+		.shooting__title {
+			@include mediaMobile {
+				font-size: 28px;
+				font-weight: 400;
+				margin-bottom: 38px;
+				text-align: center;
+				max-width: 300px;
+			}
+
+			@include mediaTablet {
+				max-width: 225px;
+				font-weight: 500;
+				font-size: 20px;
+				font-weight: 500;
+				font-size: 20px;
+				margin-bottom: 30px;
+				text-align: left;
+			}
+		}
+
 		.shooting__wrapper {
 			border: 1px solid #c7c7c7;
 			max-width: 770px;
@@ -524,15 +601,32 @@ body {
 				border-bottom: 0.5px solid #c7c7c7;
 				display: flex;
 				align-items: center;
-				padding-bottom: 20px;
-				padding-left: 30px;
 				padding-top: 20px;
+
+				@include mediaMobile {
+					padding-bottom: 16px;
+					padding-right: 44px;
+					padding-left: 44px;
+				}
+
+				@include mediaTablet {
+					padding-bottom: 20px;
+					padding-left: 30px;
+				}
 			}
 
 			.shooting-wrapper-places {
 				.shooting-wrapper-place:last-child {
 					margin-bottom: 60px;
 					border: none;
+
+					@include mediaMobile {
+						border-bottom: 0.5px solid #c7c7c7;
+						margin-bottom: 32px;
+					}
+
+					@include mediaTablet {
+					}
 				}
 				.shooting-wrapper-place {
 					padding-top: 20px;
@@ -543,6 +637,13 @@ body {
 					padding-bottom: 20px;
 					display: flex;
 					justify-content: space-between;
+					@include mediaMobile {
+						flex-direction: column;
+					}
+
+					@include mediaTablet {
+						flex-direction: row;
+					}
 
 					.place-clock {
 						margin-bottom: 10px;
@@ -551,6 +652,10 @@ body {
 						margin-bottom: 10px;
 						display: inline-block;
 						font-weight: 600;
+					}
+
+					.place-left {
+						margin-bottom: 20px;
 					}
 					.wrapper-place__btn {
 						border-radius: 3px;
@@ -575,6 +680,14 @@ body {
 				border: #83888a 1px solid;
 				padding: 8px;
 				border-radius: 5px;
+
+				@include mediaMobile {
+					display: none;
+				}
+
+				@include mediaTablet {
+					display: block;
+				}
 			}
 		}
 	}
@@ -583,6 +696,14 @@ body {
 		margin-bottom: 131px;
 		.container {
 			position: relative;
+
+			@include mediaMobile {
+				display: none;
+			}
+
+			@include mediaTablet {
+				display: block;
+			}
 		}
 		.photograph-wrapper-img img {
 			width: 67px;
@@ -646,20 +767,50 @@ body {
 	}
 
 	.feedback {
+		overflow-x: hidden;
 		margin-bottom: 100px;
 		.feedback__title {
 			font-weight: 500;
 			font-size: 20px;
 			margin-bottom: 50px;
+
+			@include mediaMobile {
+				font-weight: 400;
+				font-size: 28px;
+			}
+
+			@include mediaTablet {
+				font-weight: 500;
+				font-size: 20px;
+			}
 		}
 
 		.recall {
 			display: flex;
 			align-items: start;
 			margin-bottom: 40px;
+
+			@include mediaMobile {
+				margin-bottom: 30px;
+				display: grid;
+			}
+
+			@include mediaTablet {
+				margin-bottom: 40px;
+				display: flex;
+			}
 		}
+
 		.recall-avatar {
 			margin-right: 20px;
+
+			@include mediaMobile {
+				width: 84px;
+				height: 84px;
+			}
+
+			@include mediaTablet {
+			}
 		}
 		.recall-info {
 			max-width: 510px;
@@ -689,6 +840,16 @@ body {
 			font-size: 16px;
 			line-height: 151%;
 			margin-bottom: 20px;
+
+			@include mediaMobile {
+				max-width: 300px;
+				font-size: 14px;
+			}
+
+			@include mediaTablet {
+				max-width: none;
+				font-size: 16px;
+			}
 		}
 		.date {
 			display: inline-block;
